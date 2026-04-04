@@ -1,3 +1,48 @@
 *{
-	background-color: red;
+	
+}
+
+.Header{
+	display: flex;
+	background-color:blue;
+}
+
+.Header p{
+	flex: 1;
+}
+
+.Section_1{
+	display:flex;
+	background-color:red;
+}
+
+.Section_1_Item{
+	flex:1;
+}
+
+.Section_2{
+	background-color:blue;
+}
+
+.Section_2_Container{
+	display:flex;
+}
+
+.Section_2_Item{
+	flex:1;
+}
+
+.Section_3{
+	display: flex;
+	background-color:red;
+}
+
+.Section_4{
+	display: flex;
+	background-color:blue;
+}
+
+.Footer{
+	display: flex;
+	background-color:red;
 }
