@@ -1,27 +1,65 @@
 *{
-	
+	/* outline: 2px solid green; */
+  font-family: "Roboto", sans-serif;
+}
+
+button{
+  background-color: #3882F6;
 }
 
 .Header{
 	display: flex;
-	background-color:blue;
+	background-color: #1F2937;
+  
 }
 
 .Header p{
 	flex: 1;
 }
 
+.Header_Logo{
+  font-size: 24px;
+  color: #F9FAF8;
+}
+
+.Header_Link{
+  font-size: 18px;
+  color: #E5E7EB;
+}
+
 .Section_1{
 	display:flex;
-	background-color:red;
+	background-color: #1F2937;
 }
 
 .Section_1_Item{
 	flex:1;
 }
 
+.Section_1_Item_Title{
+  font-size: 48px;
+  font-weight: 900;
+  color: #F9FAF8;
+}
+
+.Section_1_Item_Body{
+  font-size: 18px;
+  color: #E5E7EB;
+}
+
+.Section_1_Item_Button{
+  background-color: #3882F6;
+}
+
 .Section_2{
-	background-color:blue;
+	/* background-color:blue; */
+}
+
+.Section_2_Title{
+  font-size: 36px;
+  font-weight: 900;
+  color: #1F2937;
+  margin: 0px;
 }
 
 .Section_2_Container{
@@ -34,15 +72,22 @@
 
 .Section_3{
 	display: flex;
-	background-color:red;
+	background-color: #E5E7EB;
+}
+
+.Section_3_Quote{
+  font-size: 36px;
+  font-color: #1F2937;
+  font-weight: 300;
 }
 
 .Section_4{
 	display: flex;
-	background-color:blue;
+	
 }
 
 .Footer{
 	display: flex;
-	background-color:red;
+	background-color: #1F2937;
+  color: #F9FAF8
 }
