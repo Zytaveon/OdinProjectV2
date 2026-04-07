@@ -101,8 +101,31 @@ function getResult(humanChoice, computerChoice){
 //------------------ MAIN -------------------------
 //------------------------------------------------- 
 
-console.log("Welcome to Rock, Paper, Scissors!")
-console.log("Written by Dakota McMann!")
+const RockButton = document.querySelector("#RockButton")
+const PaperButton = document.querySelector("#PaperButton")
+const ScissorButton = document.querySelector("#ScissorButton")
 
-playGame(5)
+const ComputerScore = document.querySelector("#ComputerScore")
+const HumanScore = document.querySelector("#HumanScore")
+
+let testComputerScore = 0;
+let testHumanScore = 0;
+
+
+
+RockButton.addEventListener("click", () => {
+	console.log("You chose Rock!")
+	testHumanScore++
+	HumanScore.textContent = testHumanScore
+})
+
+PaperButton.addEventListener("click", () => {
+	console.log("You chose Paper!")
+})
+
+ScissorButton.addEventListener("click", () => {
+	console.log("You chose Scissors!")
+})
+
+//playGame(5)
 
