@@ -1,5 +1,32 @@
 
 //------------------------------------------------- 
+//--------------- DOM OBJECTS ---------------------
+//------------------------------------------------- 
+
+const RockButton =		document.querySelector("#RockButton")
+const PaperButton =		document.querySelector("#PaperButton")
+const ScissorButton =	document.querySelector("#ScissorButton")
+
+const ComputerScore =	document.querySelector("#ComputerScore")
+const HumanScore =		document.querySelector("#HumanScore")
+
+//------------------------------------------------- 
+//-------------- DOM FUNCTIONS --------------------
+//------------------------------------------------- 
+
+RockButton.addEventListener("click", () => {
+	playRound("Rock")
+})
+
+PaperButton.addEventListener("click", () => {
+	playRound("Paper")
+})
+
+ScissorButton.addEventListener("click", () => {
+	playRound("Scissors")
+})
+
+//------------------------------------------------- 
 //---------------- FUNCTIONS ----------------------
 //------------------------------------------------- 
 
@@ -26,15 +53,15 @@ function playGame(rounds){
   }
 }
 
-function playRound(){
-  let humanChoice = getHumanChoice();
+function playRound(humanChoice){
   let computerChoice = getComputerChoice();
 
-  console.log(humanChoice)
-  console.log(computerChoice)
+  console.log("Your Choice = " + humanChoice)
+  console.log("Computer Choice = " + computerChoice)
 
   let result = getResult(humanChoice, computerChoice)
-  return result
+  adjustScore(result)
+  
 }
 
 function getHumanChoice(){
@@ -58,6 +85,22 @@ function getComputerChoice(){
   }
   
   return result
+}
+
+function adjustScore(result){
+	switch(result){
+		case 1:
+			console.log("You Won")
+			HumanScore.textContent = parseInt(HumanScore.textContent) + 1
+			break
+		case 0:
+			console.log("You Tied")
+			break
+		case -1:
+			console.log("You Lost")
+			ComputerScore.textContent = parseInt(ComputerScore.textContent) + 1
+			break;
+	}
 }
 
 function getResult(humanChoice, computerChoice){
@@ -101,31 +144,4 @@ function getResult(humanChoice, computerChoice){
 //------------------ MAIN -------------------------
 //------------------------------------------------- 
 
-const RockButton = document.querySelector("#RockButton")
-const PaperButton = document.querySelector("#PaperButton")
-const ScissorButton = document.querySelector("#ScissorButton")
-
-const ComputerScore = document.querySelector("#ComputerScore")
-const HumanScore = document.querySelector("#HumanScore")
-
-let testComputerScore = 0;
-let testHumanScore = 0;
-
-
-
-RockButton.addEventListener("click", () => {
-	console.log("You chose Rock!")
-	testHumanScore++
-	HumanScore.textContent = testHumanScore
-})
-
-PaperButton.addEventListener("click", () => {
-	console.log("You chose Paper!")
-})
-
-ScissorButton.addEventListener("click", () => {
-	console.log("You chose Scissors!")
-})
-
-//playGame(5)
 
