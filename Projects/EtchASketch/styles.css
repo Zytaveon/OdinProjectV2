@@ -1,0 +1,25 @@
+*{
+	background-color: black;
+}
+
+h1{
+	color: white;
+	outline: 2px solid green;
+}
+
+.gridRow{
+	display:flex;
+	height = 150px;
+}
+.gridColumn{
+	background-color: blue;
+	outline: 2px solid red;
+	height = 30px;
+	flex: 1;
+}
+
+#GameContainer{
+	height = 1000px;
+	min-height = 100vh
+	background-color: purple;
+}
