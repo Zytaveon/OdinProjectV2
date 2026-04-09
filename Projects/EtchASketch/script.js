@@ -23,13 +23,13 @@ function createBoard(gridSize){
 		for(let j = 0; j < gridSize; ++j){
 			const columnDiv = document.createElement("div")
 			columnDiv.classList.add("gridColumn")
-			columnDiv.textContent = "."
+			//columnDiv.textContent = "."
 			rowDiv.appendChild(columnDiv)
 		}
 
 		gameContainer.appendChild(rowDiv);
 	}
-			
+
 }
 
 
