@@ -9,6 +9,9 @@ const minusButton = document.querySelector("#MinusButton")
 const plusButton = document.querySelector("#PlusButton")
 const counter = document.querySelector("#Counter")
 
+const counterMax = 75
+const counterMin = 5
+
 let currentGridSize = 25;
 let newGridSize;
 
@@ -17,11 +20,15 @@ let newGridSize;
 //------------------------------------------
 
 minusButton.addEventListener("click", () => {
-	counter.textContent = parseInt(counter.textContent) - 1
+	if(parseInt(counter.textContent) > counterMin){
+		counter.textContent = parseInt(counter.textContent) - 1
+	}
 })
 
 plusButton.addEventListener("click", () => {
-	counter.textContent = parseInt(counter.textContent) + 1
+	if(parseInt(counter.textContent) < counterMax){
+		counter.textContent = parseInt(counter.textContent) + 1
+	}
 })
 
 //------------------------------------------
@@ -60,6 +67,8 @@ function resetGrid(){
 
 resetButton.addEventListener("click", () => {
 	resetGrid()
+	currentGridSize = parseInt(counter.textContent)
+	createBoard(parseInt(counter.textContent))
 })
 
 
