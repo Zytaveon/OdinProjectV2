@@ -23,14 +23,25 @@ function createBoard(gridSize){
 		for(let j = 0; j < gridSize; ++j){
 			const columnDiv = document.createElement("div")
 			columnDiv.classList.add("gridColumn")
+      columnDiv.classList.add("gridSquare")
 			//columnDiv.textContent = "."
+      columnDiv.addEventListener('mouseenter', () => {
+        columnDiv.classList.add("gridSquareActive")
+      })
 			rowDiv.appendChild(columnDiv)
 		}
 
 		gameContainer.appendChild(rowDiv);
 	}
 
+  const GridSquares = document.getElementsByClassName(".gridColumn")
+
 }
+
+//GridSquares.addEventListener("mouseenter", () => {
+  //this.classList.add("gridSquareActive")
+//})
+
 
 
 //------------------------------------------
@@ -38,3 +49,5 @@ function createBoard(gridSize){
 //------------------------------------------
 
 createBoard(25)
+
+

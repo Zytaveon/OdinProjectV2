@@ -13,11 +13,29 @@ h1{
 	flex:1;
 }
 .gridColumn{
-	background-color: blue;
+	/*background-color: blue;*/
 	outline: 2px solid red;
 	//height: 100px;
 	flex: 1;
 }
+
+.gridSquare{
+  background-color: white;
+}
+
+.gridSquareActive{
+  background-color: black;
+}
+
+
+/*
+ * This works, but squares don't stay black
+ * Need to change in Javascript
+ *
+.gridSquare:hover{
+  background-color: black;
+}
+*/
 
 #GameContainer{
   display: flex;
@@ -25,3 +43,5 @@ h1{
   /*Dakota's Desktop*/
   height: 900px;
 }
+
+
