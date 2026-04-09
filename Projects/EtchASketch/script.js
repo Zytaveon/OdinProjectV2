@@ -1,12 +1,28 @@
 //------------------------------------------
-//-------------- DOM OBJECTS ---------------
+//---------- DOM OBJECTS / GLOBALS ---------
 //------------------------------------------
 
 const gameContainer = document.querySelector("#GameContainer")
+const resetButton = document.querySelector("#ResetButton")
+
+const minusButton = document.querySelector("#MinusButton")
+const plusButton = document.querySelector("#PlusButton")
+const counter = document.querySelector("#Counter")
+
+let currentGridSize = 25;
+let newGridSize;
 
 //------------------------------------------
 //------------- DOM FUNCTIONS --------------
 //------------------------------------------
+
+minusButton.addEventListener("click", () => {
+	counter.textContent = parseInt(counter.textContent) - 1
+})
+
+plusButton.addEventListener("click", () => {
+	counter.textContent = parseInt(counter.textContent) + 1
+})
 
 //------------------------------------------
 //--------------- FUNCTIONS ----------------
@@ -33,21 +49,24 @@ function createBoard(gridSize){
 
 		gameContainer.appendChild(rowDiv);
 	}
-
-  const GridSquares = document.getElementsByClassName(".gridColumn")
-
 }
 
-//GridSquares.addEventListener("mouseenter", () => {
-  //this.classList.add("gridSquareActive")
-//})
+function resetGrid(){
+	const childNodes = document.querySelectorAll("div.gridRow")
+	for(let i = 0; i < currentGridSize; ++i){
+		gameContainer.removeChild(childNodes[i])
+	}
+}
 
+resetButton.addEventListener("click", () => {
+	resetGrid()
+})
 
 
 //------------------------------------------
 //----------------- MAIN -------------------
 //------------------------------------------
 
-createBoard(25)
+createBoard(currentGridSize)
 
 

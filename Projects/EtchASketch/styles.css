@@ -40,8 +40,39 @@ h1{
 #GameContainer{
   display: flex;
   flex-direction: column;
-  /*Dakota's Desktop*/
-  height: 900px;
+
+  /* Dakota's Desktop */
+  /* height: 900px; */
+
+  /*Dakota's Laptop*/
+  height: 450px;
+
 }
+
+#ResetButton{
+	background-color: blue;
+	color: yellow;
+}
+
+.CounterContainer{
+	display: flex;
+	/* height: 10px; */
+}
+
+#MinusButton{
+	flex: 1;
+	background-color: blue;
+	color: yellow;
+}
+
+#PlusButton{
+	flex: 1;
+	background-color: blue;
+	color: yellow;
+}
+
+#Counter{
+	flex: 1;
+	color: yellow;
 
 
