@@ -2,7 +2,10 @@
 	background-color: blue;
 }
 
-#TestButton{
-	background-color: red;
-	color: white;
+.Calculator_Container{
+	background-color: yellow;
+	height: 80vh;
+	width: 60%;
+	margin: 10% 20%;
+	align-content: center;
 }
