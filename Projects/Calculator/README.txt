@@ -9,3 +9,8 @@ This project was built mostly with the Chrome dev tools taking
 	Obviously a newbie, so I understand it will look bad
 	when using the full screen, but trying to make it look
 	good for what I intended as a starter Webpage Developer
+
+Tried to model this project after the basic IPhone calculator.
+	It seems to have a simple button layout, and a simple color scheme.
+	It will also make it easier to test, since I have one in my pocket
+	at all times.
