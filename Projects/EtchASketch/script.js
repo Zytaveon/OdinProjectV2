@@ -37,4 +37,4 @@ function createBoard(gridSize){
 //----------------- MAIN -------------------
 //------------------------------------------
 
-createBoard(5)
+createBoard(25)
