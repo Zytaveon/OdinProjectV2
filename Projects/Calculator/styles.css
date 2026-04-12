@@ -3,15 +3,16 @@
 }
 
 button{
-	background-color: white;
-	color: black;
-	border-radius:30%
+	/* background-color: white; */
+	color: white;
+	border-radius:50%
 	/* flex: 1; */
 }
 
 .Calculator_Container{
 	/* This will turn to black, but using yellow for testing */
-	background-color: yellow;
+	/* background-color: yellow; */
+  background-color: black;
 	height: 80vh;
 	width: 60%;
 	margin: 10% 20%;
@@ -21,7 +22,8 @@ button{
 
 .Display_Container{
 	/* This will turn to black, but using green for testing */
-	background-color: green;
+	/* background-color: green; */
+  background-color:black;
 	color: white;
 	width: 90%;
 	height: 33%;
@@ -42,8 +44,25 @@ button{
 .Row_Container{
 	background-color: black;
 	flex: 1;
+  flex-direction: row;
 	display: flex;
 }
 
-.Row_Container < {
+.Calc_Button {
 	flex: 1;
+  margin: 3px;
+}
+
+.Utility_Button {
+  background-color: #666161;
+}
+
+.Number_Button {
+  background-color: #2E2727;
+}
+
+.Operation_Button {
+  background-color: orange;
+}
+
+
