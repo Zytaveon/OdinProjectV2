@@ -54,56 +54,34 @@ percentButton.addEventListener("click", ()=>{
 //------------- Numbers Buttons -----------------
 
 zeroButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("0",firstNumber)}
-  else{secondNumber = numberPressed("0", secondNumber)}
 })
 
 oneButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("1",firstNumber)}
-  else{secondNumber = numberPressed("1", secondNumber)}
 })
 
 twoButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("2",firstNumber)}
-  else{secondNumber = numberPressed("2", secondNumber)}
 })
 
 threeButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("3",firstNumber)}
-  else{secondNumber = numberPressed("3", secondNumber)}
 })
 
 fourButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("4",firstNumber)}
-  else{secondNumber = numberPressed("4", secondNumber)}
 })
 
 fiveButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("5",firstNumber)}
-  else{secondNumber = numberPressed("5", secondNumber)}
 })
 
 sixButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("6",firstNumber)}
-  else{secondNumber = numberPressed("6", secondNumber)}
 })
 
 sevenButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("7",firstNumber)}
-  else{secondNumber = numberPressed("7", secondNumber)}
 })
 
 eightButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("8",firstNumber)}
-  else{secondNumber = numberPressed("8", secondNumber)}
 })
 
 nineButton.addEventListener("click", ()=> {
-  if(!operationPlaced){firstNumber = numberPressed("9",firstNumber)}
-  else{secondNumber = numberPressed("9", secondNumber)}
 
-  addCharacterToDisplay("9")
-  calcDisplay.innerText = display
 })
 
 
@@ -119,43 +97,28 @@ decimalButton.addEventListener("click", ()=>{
 
 divideButton.addEventListener("click", ()=>{
   operation = "/"
-  operationPlaced = true;
-  addCharacterToDisplay(" / ")
-
 })
 
 
 multiplyButton.addEventListener("click", ()=>{
   operation = "*"
-  operationPlaced = true;
 })
 
 minusButton.addEventListener("click", ()=>{
   operation = "-"
-  operationPlaced = true;
 })
 
 addButton.addEventListener("click", ()=>{
   operation = "+"
-  operationPlaced = true;
 })
 
 equalButton.addEventListener("click", ()=>{
-  evaulate(firstNumber, secondNumber, operation)
+	console.log("Eval Button")
 })
 
 //-----------------------------------------------
 //---------------- Functions --------------------
 //-----------------------------------------------
-
-//The argument should come in a string
-function numberPressed(numberPressed, currentNumber){
-  return currentNumber + numberPressed
-}
-
-function addCharacterToDisplay(char){
-  return display = display + char;
-}
 
 //The arguments will come as strings
 function evaulate(number1, number2, operation){
@@ -193,12 +156,13 @@ function evaulate(number1, number2, operation){
 //------------------ MAIN -----------------------
 //-----------------------------------------------
 
-let firstNumber = ""
-let secondNumber = ""
-let operation
-let operationPlaced = false;
+let _firstNumber = ""
+let _secondNumber = ""
 
-let display = ""
+let _operation
+let _operationPlaced = false;
 
-console.log(calcDisplay.innerText)
+let _display = ""
+
+
 
