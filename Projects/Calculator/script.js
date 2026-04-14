@@ -54,34 +54,43 @@ percentButton.addEventListener("click", ()=>{
 //------------- Numbers Buttons -----------------
 
 zeroButton.addEventListener("click", ()=> {
+	numberPressed("0")
 })
 
 oneButton.addEventListener("click", ()=> {
+	numberPressed("1")
 })
 
 twoButton.addEventListener("click", ()=> {
+	numberPressed("2")
 })
 
 threeButton.addEventListener("click", ()=> {
+	numberPressed("3")
 })
 
 fourButton.addEventListener("click", ()=> {
+	numberPressed("4")
 })
 
 fiveButton.addEventListener("click", ()=> {
+	numberPressed("5")
 })
 
 sixButton.addEventListener("click", ()=> {
+	numberPressed("6")
 })
 
 sevenButton.addEventListener("click", ()=> {
+	numberPressed("7")
 })
 
 eightButton.addEventListener("click", ()=> {
+	numberPressed("8")
 })
 
 nineButton.addEventListener("click", ()=> {
-
+	numberPressed("9")
 })
 
 
@@ -96,39 +105,68 @@ decimalButton.addEventListener("click", ()=>{
 //------------ Operation Buttons ----------------
 
 divideButton.addEventListener("click", ()=>{
-  operation = "/"
+	operationPressed("/")
 })
 
 
 multiplyButton.addEventListener("click", ()=>{
-  operation = "*"
+	operationPressed("*")
 })
 
 minusButton.addEventListener("click", ()=>{
-  operation = "-"
+	operationPressed("-")
 })
 
 addButton.addEventListener("click", ()=>{
-  operation = "+"
+	operationPressed("+")
 })
 
 equalButton.addEventListener("click", ()=>{
-	console.log("Eval Button")
+	evaluate()
 })
 
 //-----------------------------------------------
 //---------------- Functions --------------------
 //-----------------------------------------------
 
-//The arguments will come as strings
-function evaulate(number1, number2, operation){
+//Number will come in as a string
+function numberPressed(number){
+	if(!_operationPlaced){
+		_firstNumber = _firstNumber + number
+	}
 
-  let num1 = parseInt(number1)
-  let num2 = parseInt(number2)
+	else{
+		_secondNumber = _secondNumber + number
+	}
+	
+	console.log("First: ", _firstNumber, " Second: ", _secondNumber)
+	addToDisplay(number);
+
+}
+
+//Operation will come in as a string
+function operationPressed(operation){
+	_operation = operation
+	_operationPlaced = true
+	stringForDisplay =
+	addToDisplay(" " + operation + " ")
+}
+
+//The arguments will come as strings
+function evaluate(){
+
+	console.log(_firstNumber)
+	console.log(_secondNumber)
+
+  let num1 = parseInt(_firstNumber)
+  let num2 = parseInt(_secondNumber)
+
+	console.log(num1)
+	console.log(num2)
 
   let result = 0;
 
-  switch(operation){
+  switch(_operation){
 
     case "+":
       result = num1 + num2;
@@ -146,10 +184,22 @@ function evaulate(number1, number2, operation){
       result = num1 / num2;
       break;
   }
-  
-  console.log(result)
-  return result
 
+	console.log(result)
+
+  clearDisplay()
+  _firstNumber = result
+  addToDisplay(_firstNumber)
+
+}
+
+function addToDisplay(string){
+	_display = _display + string
+	calcDisplay.innerText = _display
+}
+
+function clearDisplay(){
+	_display = ""
 }
 
 //-----------------------------------------------
