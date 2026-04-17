@@ -54,56 +54,43 @@ percentButton.addEventListener("click", ()=>{
 //------------- Numbers Buttons -----------------
 
 zeroButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("0",firstNumber)}
-  else{secondNumber = numberPressed("0", secondNumber)}
+	numberPressed("0")
 })
 
 oneButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("1",firstNumber)}
-  else{secondNumber = numberPressed("1", secondNumber)}
+	numberPressed("1")
 })
 
 twoButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("2",firstNumber)}
-  else{secondNumber = numberPressed("2", secondNumber)}
+	numberPressed("2")
 })
 
 threeButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("3",firstNumber)}
-  else{secondNumber = numberPressed("3", secondNumber)}
+	numberPressed("3")
 })
 
 fourButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("4",firstNumber)}
-  else{secondNumber = numberPressed("4", secondNumber)}
+	numberPressed("4")
 })
 
 fiveButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("5",firstNumber)}
-  else{secondNumber = numberPressed("5", secondNumber)}
+	numberPressed("5")
 })
 
 sixButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("6",firstNumber)}
-  else{secondNumber = numberPressed("6", secondNumber)}
+	numberPressed("6")
 })
 
 sevenButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("7",firstNumber)}
-  else{secondNumber = numberPressed("7", secondNumber)}
+	numberPressed("7")
 })
 
 eightButton.addEventListener("click", ()=> {
-  if(operationPlaced){firstNumber = numberPressed("8",firstNumber)}
-  else{secondNumber = numberPressed("8", secondNumber)}
+	numberPressed("8")
 })
 
 nineButton.addEventListener("click", ()=> {
-  if(!operationPlaced){firstNumber = numberPressed("9",firstNumber)}
-  else{secondNumber = numberPressed("9", secondNumber)}
-
-  addCharacterToDisplay("9")
-  calcDisplay.innerText = display
+	numberPressed("9")
 })
 
 
@@ -118,54 +105,68 @@ decimalButton.addEventListener("click", ()=>{
 //------------ Operation Buttons ----------------
 
 divideButton.addEventListener("click", ()=>{
-  operation = "/"
-  operationPlaced = true;
-  addCharacterToDisplay(" / ")
-
+	operationPressed("/")
 })
 
 
 multiplyButton.addEventListener("click", ()=>{
-  operation = "*"
-  operationPlaced = true;
+	operationPressed("*")
 })
 
 minusButton.addEventListener("click", ()=>{
-  operation = "-"
-  operationPlaced = true;
+	operationPressed("-")
 })
 
 addButton.addEventListener("click", ()=>{
-  operation = "+"
-  operationPlaced = true;
+	operationPressed("+")
 })
 
 equalButton.addEventListener("click", ()=>{
-  evaulate(firstNumber, secondNumber, operation)
+	evaluate()
 })
 
 //-----------------------------------------------
 //---------------- Functions --------------------
 //-----------------------------------------------
 
-//The argument should come in a string
-function numberPressed(numberPressed, currentNumber){
-  return currentNumber + numberPressed
+//Number will come in as a string
+function numberPressed(number){
+	if(!_operationPlaced){
+		_firstNumber = _firstNumber + number
+	}
+
+	else{
+		_secondNumber = _secondNumber + number
+	}
+	
+	console.log("First: ", _firstNumber, " Second: ", _secondNumber)
+	addToDisplay(number);
+
 }
 
-function addCharacterToDisplay(char){
-  return display = display + char;
+//Operation will come in as a string
+function operationPressed(operation){
+	_operation = operation
+	_operationPlaced = true
+	stringForDisplay =
+	addToDisplay(" " + operation + " ")
 }
 
 //The arguments will come as strings
-function evaulate(number1, number2, operation){
+function evaluate(){
 
-  let num1 = parseInt(number1)
-  let num2 = parseInt(number2)
+	console.log(_firstNumber)
+	console.log(_secondNumber)
+
+  let num1 = parseInt(_firstNumber)
+  let num2 = parseInt(_secondNumber)
+
+	console.log(num1)
+	console.log(num2)
 
   let result = 0;
 
-  switch(operation){
+  switch(_operation){
 
     case "+":
       result = num1 + num2;
@@ -183,22 +184,35 @@ function evaulate(number1, number2, operation){
       result = num1 / num2;
       break;
   }
-  
-  console.log(result)
-  return result
 
+	console.log(result)
+
+  clearDisplay()
+  _firstNumber = result
+  addToDisplay(_firstNumber)
+
+}
+
+function addToDisplay(string){
+	_display = _display + string
+	calcDisplay.innerText = _display
+}
+
+function clearDisplay(){
+	_display = ""
 }
 
 //-----------------------------------------------
 //------------------ MAIN -----------------------
 //-----------------------------------------------
 
-let firstNumber = ""
-let secondNumber = ""
-let operation
-let operationPlaced = false;
+let _firstNumber = ""
+let _secondNumber = ""
 
-let display = ""
+let _operation
+let _operationPlaced = false;
 
-console.log(calcDisplay.innerText)
+let _display = ""
+
+
 
