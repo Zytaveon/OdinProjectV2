@@ -1,0 +1,15 @@
+@font-face{
+    font-family: "Norse";
+    src: url("assets/fonts/Norse.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+
+    /* background-color: blue; */
+}
+
+h1{
+    font-family: "Norse", sans-serif;
+}
