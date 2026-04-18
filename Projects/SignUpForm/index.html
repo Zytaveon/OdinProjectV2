@@ -11,6 +11,11 @@
     <body>
         <div class = "Container">
             <div class = "ImageContainer">
+                <!-- <img src = "assets/SignUpFormPic.jpg" id = "OdinPic"> -->
+                <div class = "OdinLogoStrip">
+                    <img src = "assets/OdinLogo.png" id = "OdinLogo">
+                    <h1 class = "OdinLogoText">ODIN</h1>
+                </div>
                 <img src = "assets/SignUpFormPic.jpg" id = "OdinPic">
             </div>
             <div class = "FormContainer">
@@ -23,6 +28,34 @@
                     <p>
                     You <em>know</em> you want to.
                     </p>
+                </div>
+                <div class = "Section_Middle">
+                    <p class = "FormText">Lets do this!</p>
+                    <form>
+                        <div class = "FormRow">
+                            <label for = "First_Name">First Name: </label>
+                            <input type = "text" id = "First_Name">
+                            <label for = "Last_Name">Last Name: </label>
+                            <input type = "text" id = "Last_Name">
+                        </div>
+                        <div class = "FormRow">
+                            <label for = "Email">Email: </label>
+                            <input type = "email" id = "Email">
+                            <label for = "Phone_Number">Phone Number: </label>
+                            <input type = "text" id = "Phone_Number">
+                        </div>
+                        <div class = "FormRow">
+                            <label for = "Password">Password: </label>
+                            <input type = "password" id = "Password">
+                            <label for = "Confirm_Password">Confirm Password: </label>
+                            <input type = "password" id = "Confirm_Password">
+                        </div>
+                    </form>
+
+                </div>
+                <div class = "Section_Bottom">
+                    <button action = "submit" class = "submit_button">Create Account</button>
+                    <p>Already have an account? <a>Log in</a></p>
                 </div>
             </div>
         </div>
