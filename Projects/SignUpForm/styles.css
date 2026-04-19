@@ -88,6 +88,13 @@ div{
 .Section_Middle{
     background-color: red;
     height: 32vh;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.form{
+    flex: 1;
 }
 
 .Section_Bottom{
