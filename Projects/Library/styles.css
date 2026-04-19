@@ -1,3 +1,29 @@
 *{
-    background-color: blue;
+    background-color: brown;
+    margin: 0;
+    padding: 0;
 }
+
+#BookContainer{
+    /* TESTING VALUE */
+    background-color: grey;
+
+    /* display: flex; */
+    height: 80vh;
+    width: 80vw;
+    margin: 10vh 10vw;
+}
+
+#AddBookButton{
+    background-color: yellow;
+    color: blue;
+}
+
+.Book{
+    flex: 1;
+    background-color: green;
+    height: 80px;
+    width: 80px;
+}
+
+
