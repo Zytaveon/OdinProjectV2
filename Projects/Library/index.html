@@ -8,10 +8,32 @@
     </head>
 
     <header>
-        <button id = "AddBookButton">Add Book</button>
+        <button id = "AddBookButton">
+            Add Book
+        </button>
     </header>
 
     <body>
+        <dialog id = "AddBookDialog">
+            <div class = "formLine">
+                <label for = "FormTitle">Title</label>
+                <input type = "text" id = "FormTitle" name = "FormTitle">
+            </div>
+            <div class = "formLine">
+                <label for = "FormAuthor">Author</label>
+                <input type = "text" id = "FormAuthor" name = "FormAuthor">
+            </div>
+            <div class = "formLine">
+                <label for = "FormPages">Pages</label>
+                <input type = "text" id = "FormPages" name = "FormPages">
+            </div>
+            <div class = "formLine">
+                <label for = "FormRead">Read?</label>
+                <input type = "text" id = "FormRead" name = "FormRead">
+            </div>
+            <button commandfor = "AddBookDialog" id = "DialogButton">Close</button>
+        </dialog>
+
         <div id = "BookContainer">
         </div>
     </body>

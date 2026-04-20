@@ -4,13 +4,19 @@
 
 const BookContainer = document.querySelector("#BookContainer")
 const AddBookButton = document.querySelector("#AddBookButton")
+const DialogButton = document.querySelector("#DialogButton")
+const Dialog = document.querySelector("#AddBookDialog")
 
 //---------------------------------------------
 //-------------- DOM FUNCTIONS ----------------
 //---------------------------------------------
 
 AddBookButton.addEventListener("click", ()=> {
-    console.log("Hello from Add Button!")
+    Dialog.showModal()
+})
+
+DialogButton.addEventListener("click", () => {
+    Dialog.close()
 })
 
 //---------------------------------------------
@@ -30,6 +36,10 @@ function Book(title, author, pages, read, id){
     this.pages = pages
     this.read = read
     this.id = "Blank"
+
+    this.addBookDetails = function(){
+        
+    }
 }
 
 //Should already have the book created?

@@ -24,6 +24,8 @@
     background-color: green;
     height: 80px;
     width: 80px;
+    border: 2px solid white;
+    margin: 1%;
 }
 
 .BookDetails{
