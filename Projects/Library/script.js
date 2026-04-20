@@ -25,10 +25,10 @@ function Book(title, author, pages, read, id){
         throw Error("You must use the 'new' operator to call the constructor")
     }
 
-    this.title = "Blank"
-    this.author = "Blank"
-    this.pages = 0
-    this.read = false
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.read = read
     this.id = "Blank"
 }
 
@@ -39,9 +39,40 @@ function addBookToLibrary(){
 
 function displayBooks(){
     for(let i = 0;  i < myLibrary.length; ++i){
+        //New Book Element
         const BookDiv = document.createElement("div");
         BookDiv.classList.add("Book")
+
+        //Add book details to BookDiv and append as child
+        const BookTitleDiv = document.createElement("div")
+        BookTitleDiv.classList.add("BookDetails")
+        BookTitleDiv.classList.add("BookTitle")
+        BookTitleDiv.textContent = myLibrary[i].title
+        BookDiv.appendChild(BookTitleDiv)
+
+        const BookAuthorDiv = document.createElement("div")
+        BookAuthorDiv.classList.add("BookDetails")
+        BookAuthorDiv.classList.add("BookAuthor")
+        BookAuthorDiv.textContent = myLibrary[i].author
+        BookDiv.appendChild(BookAuthorDiv)
+
+        const BookPagesDiv = document.createElement("div") 
+        BookPagesDiv.classList.add("BookDetails")
+        BookPagesDiv.classList.add("BookPages")
+        BookPagesDiv.textContent = myLibrary[i].pages
+        BookDiv.appendChild(BookPagesDiv)
+
+        const BookReadDiv = document.createElement("div")
+        BookReadDiv.classList.add("BookDetails")
+        BookReadDiv.classList.add("BookRead")
+        BookReadDiv.textContent = myLibrary[i].read
+        BookDiv.appendChild(BookReadDiv)
+
+
+
+        // BookDiv.classList.add("Book")
         BookContainer.appendChild(BookDiv)
+
     }
 }
 
