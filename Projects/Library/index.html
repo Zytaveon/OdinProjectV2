@@ -15,23 +15,25 @@
 
     <body>
         <dialog id = "AddBookDialog">
-            <div class = "formLine">
-                <label for = "FormTitle">Title</label>
-                <input type = "text" id = "FormTitle" name = "FormTitle">
-            </div>
-            <div class = "formLine">
-                <label for = "FormAuthor">Author</label>
-                <input type = "text" id = "FormAuthor" name = "FormAuthor">
-            </div>
-            <div class = "formLine">
-                <label for = "FormPages">Pages</label>
-                <input type = "text" id = "FormPages" name = "FormPages">
-            </div>
-            <div class = "formLine">
-                <label for = "FormRead">Read?</label>
-                <input type = "text" id = "FormRead" name = "FormRead">
-            </div>
-            <button commandfor = "AddBookDialog" id = "DialogButton">Close</button>
+            <form action = "#" method = "get">
+                <div class = "formLine">
+                    <label for = "FormTitle">Title</label>
+                    <input type = "text" id = "FormTitle" name = "FormTitle" required>
+                </div>
+                <div class = "formLine">
+                    <label for = "FormAuthor">Author</label>
+                    <input type = "text" id = "FormAuthor" name = "FormAuthor" required>
+                </div>
+                <div class = "formLine">
+                    <label for = "FormPages">Pages</label>
+                    <input type = "text" id = "FormPages" name = "FormPages" required>
+                </div>
+                <div class = "formLine">
+                    <label for = "FormRead">Read?</label>
+                    <input type = "text" id = "FormRead" name = "FormRead" required>
+                </div>
+                <button type = "submit" id = "DialogButton">Close</button>
+            </form>
         </dialog>
 
         <div id = "BookContainer">

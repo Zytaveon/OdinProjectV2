@@ -16,7 +16,10 @@ AddBookButton.addEventListener("click", ()=> {
 })
 
 DialogButton.addEventListener("click", () => {
-    Dialog.close()
+    //Dialog.close()
+    //I should be able to close the dialog button
+    //and then retrive the information.. correct?
+    
 })
 
 //---------------------------------------------
@@ -36,10 +39,6 @@ function Book(title, author, pages, read, id){
     this.pages = pages
     this.read = read
     this.id = "Blank"
-
-    this.addBookDetails = function(){
-        
-    }
 }
 
 //Should already have the book created?
