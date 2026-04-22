@@ -1,4 +1,14 @@
 //---------------------------------------------
+//------------------ NOTES --------------------
+//---------------------------------------------
+/*
+    So, the submit button doesn't work on the button.
+    It only works on the form object itself, so have
+    get the form object from the DOM and then use the form ("submit", (event))
+    on the event listener and hopefully should work for required fields,
+    as well as having the information available to create the books.
+*/
+//---------------------------------------------
 //--------------- DOM OBJECTS -----------------
 //---------------------------------------------
 
@@ -13,13 +23,14 @@ const Dialog = document.querySelector("#AddBookDialog")
 
 AddBookButton.addEventListener("click", ()=> {
     Dialog.showModal()
+    console.log("Hi")
 })
 
-DialogButton.addEventListener("click", () => {
-    //Dialog.close()
-    //I should be able to close the dialog button
-    //and then retrive the information.. correct?
-    
+DialogButton.addEventListener("submit", (event) => {
+    console.log("Hello....")
+    event.preventDefault()
+    console.log("Form submitted")
+    Dialog.close()
 })
 
 //---------------------------------------------
