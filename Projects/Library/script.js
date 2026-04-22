@@ -2,25 +2,21 @@
 //------------------ NOTES --------------------
 //---------------------------------------------
 /*
-    So, the submit button doesn't work on the button.
-    It only works on the form object itself, so have
-    get the form object from the DOM and then use the form ("submit", (event))
-    on the event listener and hopefully should work for required fields,
-    as well as having the information available to create the books.
+
 */
 //---------------------------------------------
 //--------------- DOM OBJECTS -----------------
 //---------------------------------------------
 
-const BookContainer = document.querySelector("#BookContainer")
-const AddBookButton = document.querySelector("#AddBookButton")
-const DialogButton = document.querySelector("#DialogButton")
-const Dialog = document.querySelector("#AddBookDialog")
-const DialogForm = document.querySelector("#DialogForm")
-const FormTitle = document.querySelector("#FormTitle")
-const FormAuthor = document.querySelector("#FormAuthor")
-const FormPages = document.querySelector("#FormPages")
-const FormRead = document.querySelector("#FormRead")
+const BookContainer =   document.querySelector("#BookContainer")
+const AddBookButton =   document.querySelector("#AddBookButton")
+const DialogButton  =   document.querySelector("#DialogButton")
+const Dialog        =   document.querySelector("#AddBookDialog")
+const DialogForm    =   document.querySelector("#DialogForm")
+const FormTitle     =   document.querySelector("#FormTitle")
+const FormAuthor    =   document.querySelector("#FormAuthor")
+const FormPages     =   document.querySelector("#FormPages")
+const FormRead      =   document.querySelector("#FormRead")
 
 //---------------------------------------------
 //-------------- DOM FUNCTIONS ----------------
@@ -31,12 +27,25 @@ AddBookButton.addEventListener("click", ()=> {
 })
 
 DialogForm.addEventListener("submit", (event) => {
+    //Stops form from being submitted
     event.preventDefault()
-    console.log("Hello from the form")
+
+    //Get info from form
     console.log("Form Title..? =>", FormTitle.value)
     console.log("Form Author..? =>", FormAuthor.value)
     console.log("Form Pages..? =>", FormPages.value)
     console.log("Form Read..? =>", FormRead.value)
+    
+    addBookToLibrary(FormTitle.value, FormAuthor.value, FormPages.value, FormRead.value)
+
+
+    //Clear form info, for next book
+    FormTitle.value = ""
+    FormAuthor.value = ""
+    FormPages.value = ""
+    FormRead.value = ""
+
+    //Close Add Book menu
     Dialog.close()
 })
 
@@ -60,8 +69,10 @@ function Book(title, author, pages, read, id){
 }
 
 //Should already have the book created?
-function addBookToLibrary(){
-    
+function addBookToLibrary(title, author, pages, read){
+    const newBook = new Book(title, author, pages, read)
+    myLibrary.push(newBook)
+    displayBooks()
 }
 
 function displayBooks(){
