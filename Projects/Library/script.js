@@ -16,6 +16,11 @@ const BookContainer = document.querySelector("#BookContainer")
 const AddBookButton = document.querySelector("#AddBookButton")
 const DialogButton = document.querySelector("#DialogButton")
 const Dialog = document.querySelector("#AddBookDialog")
+const DialogForm = document.querySelector("#DialogForm")
+const FormTitle = document.querySelector("#FormTitle")
+const FormAuthor = document.querySelector("#FormAuthor")
+const FormPages = document.querySelector("#FormPages")
+const FormRead = document.querySelector("#FormRead")
 
 //---------------------------------------------
 //-------------- DOM FUNCTIONS ----------------
@@ -23,13 +28,15 @@ const Dialog = document.querySelector("#AddBookDialog")
 
 AddBookButton.addEventListener("click", ()=> {
     Dialog.showModal()
-    console.log("Hi")
 })
 
-DialogButton.addEventListener("submit", (event) => {
-    console.log("Hello....")
+DialogForm.addEventListener("submit", (event) => {
     event.preventDefault()
-    console.log("Form submitted")
+    console.log("Hello from the form")
+    console.log("Form Title..? =>", FormTitle.value)
+    console.log("Form Author..? =>", FormAuthor.value)
+    console.log("Form Pages..? =>", FormPages.value)
+    console.log("Form Read..? =>", FormRead.value)
     Dialog.close()
 })
 
