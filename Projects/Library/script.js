@@ -72,6 +72,7 @@ function Book(title, author, pages, read, id){
 function addBookToLibrary(title, author, pages, read){
     const newBook = new Book(title, author, pages, read)
     myLibrary.push(newBook)
+    resetDisplay()
     displayBooks()
 }
 
@@ -112,6 +113,11 @@ function displayBooks(){
         BookContainer.appendChild(BookDiv)
 
     }
+}
+
+//Clears books so duplicates aren't created for display
+function resetDisplay(){
+    BookContainer.replaceChildren()
 }
 
 const Book1 = new Book("Dew", "Dew", 100, false, 111)
