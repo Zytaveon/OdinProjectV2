@@ -34,16 +34,16 @@ DialogForm.addEventListener("submit", (event) => {
     console.log("Form Title..? =>", FormTitle.value)
     console.log("Form Author..? =>", FormAuthor.value)
     console.log("Form Pages..? =>", FormPages.value)
-    console.log("Form Read..? =>", FormRead.value)
+    console.log("Form Read..? =>", FormRead.checked)
     
-    addBookToLibrary(FormTitle.value, FormAuthor.value, FormPages.value, FormRead.value)
+    addBookToLibrary(FormTitle.value, FormAuthor.value, FormPages.value, FormRead.checked)
 
 
     //Clear form info, for next book
     FormTitle.value = ""
     FormAuthor.value = ""
     FormPages.value = ""
-    FormRead.value = ""
+    FormRead.checked = false;
 
     //Close Add Book menu
     Dialog.close()
