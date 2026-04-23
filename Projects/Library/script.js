@@ -2,7 +2,12 @@
 //------------------ NOTES --------------------
 //---------------------------------------------
 /*
+    Changed display to grid over flex. Might need to go back because
+    id rather have the elements with only 1 - 2 items to be in the
+    middle of the container instead of placed in their grid position.
 
+    Also need to add the function to mark if a book or read or not
+    and be able to change if the book has been read.
 */
 //---------------------------------------------
 //--------------- DOM OBJECTS -----------------
@@ -66,6 +71,7 @@ function Book(title, author, pages, read, id){
     this.pages = pages
     this.read = read
     this.id = "Blank"
+
 }
 
 //Should already have the book created?

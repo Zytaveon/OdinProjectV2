@@ -29,7 +29,9 @@ body{
     /* TESTING VALUE */
     background-color: grey;
 
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1rem;
     height: 80vh;
     width: 76vw;
     margin: 3vh 10vw;
