@@ -7,8 +7,28 @@
         <script src = "script.js" defer></script>
     </head>
 
+    <header>
+        <h1 class = "HeaderInfo" id = "#PageTitle">Tic Tac Toe</h1>
+        <h2 class = "HeaderInfo" id = "#PageAuthor">by Dakota McMann</h2>
+        <button id = "StartButton">Start</button>
+        <dialog id = "PlayerNameDialog">
+            <form id = "PlayerNameForm">
+                <div class = "formLine">
+                    <h2>Player Names:</h2>
+                </div>
+                <div class = "formLine">
+                    <label for = "FormPlayerOne">Player 1:</label>
+                    <input type = "text" id = "FormPlayerOne" name = "FormPlayerOne" required>
+                </div>
+                <div class = "formLine">
+                    <label for = "FormPlayerTwo">Player 2:</label>
+                    <input type = "text" id = "FormPlayerTwo" name = "FormPlayerTwo" required>
+                </div>
+                <button type = "submit" id = "PlayerDialogButton">Start Game!</button>
+            </form>
+        </dialog>
+    </header>
+
     <body>
-        <h1>Hello There</h1>
-        <button id = "Hello">Hello</button>
     </body>
 </html>
