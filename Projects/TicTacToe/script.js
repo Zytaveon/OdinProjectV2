@@ -42,9 +42,11 @@ const GameBoard = (() => {
             }
             output += "\n"
         }
+        console.log(output)
     }
     
     function setTile(i, j, value){
+        console.log(value, typeof value)
         if(gameBoard[i][j] === null){
             gameBoard[i][j] = value
         }
@@ -71,11 +73,14 @@ const Game = (() => {
 
     let playerOne
     let playerTwo
+    let currentPlayer
 
     //Should be receiving player objects already
     function setPlayers(PlayerOne, PlayerTwo){
         playerOne = PlayerOne
         playerTwo = PlayerTwo
+
+        currentPlayer = PlayerOne
 
         console.log("Hello, " + playerOne.getPlayerName())
         console.log("Hello, " + playerTwo.getPlayerName())
@@ -89,16 +94,18 @@ const Game = (() => {
         
         const gameContainer = document.querySelector("#gameContainer")
 
-        //Bigger objects
+        //Player One's Info
         const playerOneCard = document.createElement("div")
         playerOneCard.classList.add("playerCard")
         playerOneCard.classList.add("playerOneCard")
         gameContainer.appendChild(playerOneCard)
         
+        //GameBoard Area
         const gameBoard = document.createElement("div")
         gameBoard.classList.add("gameBoard")
         gameContainer.appendChild(gameBoard)
 
+        // Player Two's Info
         const playerTwoCard = document.createElement("div")
         playerTwoCard.classList.add("playerCard")
         playerTwoCard.classList.add("playerTwoCard")
@@ -113,9 +120,35 @@ const Game = (() => {
                 const gameBoardCell = document.createElement("div")
                 gameBoardCell.classList.add("Cell")
                 gridRow.appendChild(gameBoardCell)
-            }
+
+                gameBoardCell.addEventListener("click", () => {
+                    tileClicked(i, j, gameBoardCell)
+                })
 
             gameBoard.appendChild(gridRow)
+
+            }
+        }
+    }
+
+    function tileClicked(row, col, cell){
+        console.log({
+            ROW: row,
+            COL: col
+        })
+
+        GameBoard.setTile(row, col, currentPlayer.getPlayerSymbol())
+        GameBoard.printBoard()
+        cell.textContent = currentPlayer.getPlayerSymbol()
+        switchPlayer()
+    }
+
+    function switchPlayer(){
+        if(currentPlayer === playerOne){
+            currentPlayer = playerTwo
+        }
+        else{
+            currentPlayer = playerOne
         }
     }
 
@@ -154,10 +187,12 @@ function Player(username, userSymbol){
     let name = username
     let symbol = userSymbol
 
-    const getPlayerName = () => { return name}
+    const getPlayerName = () => {return name}
+    const getPlayerSymbol = () => {return symbol}
 
     return {
-        getPlayerName
+        getPlayerName,
+        getPlayerSymbol
     }
 }
 
