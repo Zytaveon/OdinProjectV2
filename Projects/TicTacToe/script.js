@@ -53,11 +53,16 @@ const GameBoard = (() => {
         }
     }
 
+    function getSize(){
+        return gameBoardLength;
+    }
+
     //Return the functions so they can be used
     return{
         createBoard,
         printBoard,
-        setTile
+        setTile,
+        getSize
     }
 
 })();
@@ -77,8 +82,46 @@ const Game = (() => {
 
     }
 
+    function displayGame(){
+        
+        //remove the start button from the header
+        startButton.remove()
+        
+        const gameContainer = document.querySelector("#gameContainer")
+
+        //Bigger objects
+        const playerOneCard = document.createElement("div")
+        playerOneCard.classList.add("playerCard")
+        playerOneCard.classList.add("playerOneCard")
+        gameContainer.appendChild(playerOneCard)
+        
+        const gameBoard = document.createElement("div")
+        gameBoard.classList.add("gameBoard")
+        gameContainer.appendChild(gameBoard)
+
+        const playerTwoCard = document.createElement("div")
+        playerTwoCard.classList.add("playerCard")
+        playerTwoCard.classList.add("playerTwoCard")
+        gameContainer.appendChild(playerTwoCard)
+
+        //Cells for gameBoard
+        for(let i = 0; i < GameBoard.getSize(); ++i){
+            const gridRow = document.createElement("div")
+            gridRow.classList.add("gameBoardRow")
+
+            for(let j = 0; j < GameBoard.getSize(); ++j){
+                const gameBoardCell = document.createElement("div")
+                gameBoardCell.classList.add("Cell")
+                gridRow.appendChild(gameBoardCell)
+            }
+
+            gameBoard.appendChild(gridRow)
+        }
+    }
+
     return{
-        setPlayers
+        setPlayers,
+        displayGame
     }
 
 })();
@@ -96,6 +139,7 @@ startButton.addEventListener("click", () => {
 PlayerNameForm.addEventListener("submit", (event) => {
     event.preventDefault()
     Game.setPlayers(Player(FormPlayerOne.value, "X"), Player(FormPlayerTwo.value, "O"))
+    Game.displayGame()
     PlayerDialog.close()
 })
 
@@ -110,8 +154,10 @@ function Player(username, userSymbol){
     let name = username
     let symbol = userSymbol
 
-    function getPlayerName(){
-        return name
+    const getPlayerName = () => { return name}
+
+    return {
+        getPlayerName
     }
 }
 

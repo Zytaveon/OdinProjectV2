@@ -5,4 +5,34 @@ header{
     text-align: center;
 }
 
+#gameContainer{
+    /* background-color: blue; */
+    height: 60vh;
+    width: auto;
+    display: flex;
+}
+
+.playerCard{
+    background-color: green;
+    flex: 1;
+}
+
+.gameBoard{
+    background-color: red;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.gameBoardRow{
+    background-color: yellow;
+    flex: 1;
+    display: flex;
+}
+
+.Cell{
+    background-color: white;
+    flex: 1;
+    outline: 2px solid black;
+}
 
