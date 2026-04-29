@@ -197,6 +197,15 @@ const Game = (() => {
 
     function playerWon(player){
         console.log("A player won!")
+        const resetButtonContainer = document.querySelector("#resetButtonContainer")
+        const resetButton = document.createElement("button")
+        resetButton.textContent = "Reset"
+        resetButtonContainer.appendChild(resetButton)
+        resetButton.addEventListener("click", () => {
+            //ClearBoard. Add score to player that won or 1/2 if draw.
+            //Reset Board to play again. Remove button
+            resetButton.remove()
+        }
     }
 
     function tileClicked(row, col, cell){
