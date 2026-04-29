@@ -63,13 +63,67 @@ const GameBoard = (() => {
         return gameBoard[row][col]   
     }
 
+    //Takes in symbol of user that last played
+    //Player that didn't just make a mark
+    //should never win.
+    
+    //Returns true if won,
+    //False if not
+    function getWin(symbol){
+
+        let won = false
+
+        //Top Row
+        if(gameBoard[0][0] === symbol && gameBoard[0][1] === symbol && gameBoard[0][2] === symbol){
+            won = true
+        }
+
+        //Middle Row
+        if(gameBoard[1][0] === symbol && gameBoard[1][1] === symbol && gameBoard[1][2] === symbol){
+            won = true
+        }
+        
+        //Bottom Row
+        if(gameBoard[2][0] === symbol && gameBoard[2][1] === symbol && gameBoard[2][2] === symbol){
+            won = true
+        }
+        
+        //Left Column
+        if(gameBoard[0][0] === symbol && gameBoard[1][0] === symbol && gameBoard[2][0] === symbol){
+            won = true
+        }
+        
+        //Middle Column
+        if(gameBoard[0][1] === symbol && gameBoard[1][1] === symbol && gameBoard[2][1] === symbol){
+            won = true
+        }
+
+        //Right Column
+        if(gameBoard[0][2] === symbol && gameBoard[1][2] === symbol && gameBoard[2][2] === symbol){
+            won = true
+        }
+
+        //TopRight to BottomLeft Diagnol
+        if(gameBoard[0][0] === symbol && gameBoard[1][1] === symbol && gameBoard[2][2] === symbol){
+            won = true
+        }
+
+        //BottomRight to TopLeft Diagnol
+        if(gameBoard[2][0] === symbol && gameBoard[1][1] === symbol && gameBoard[0][2] === symbol){
+            won = true
+        }
+
+        return won
+    }
+
     //Return the functions so they can be used
     return{
         createBoard,
         printBoard,
         setTile,
         getSize,
-        getTile
+        getTile,
+        getWin
     }
 
 })();
@@ -80,12 +134,15 @@ const Game = (() => {
     let playerTwo
     let currentPlayer
 
+    let gameRunning = false
+
     //Should be receiving player objects already
     function setPlayers(PlayerOne, PlayerTwo){
         playerOne = PlayerOne
         playerTwo = PlayerTwo
 
         currentPlayer = PlayerOne
+        gameRunning = true
 
         console.log("Hello, " + playerOne.getPlayerName())
         console.log("Hello, " + playerTwo.getPlayerName())
@@ -127,7 +184,9 @@ const Game = (() => {
                 gridRow.appendChild(gameBoardCell)
 
                 gameBoardCell.addEventListener("click", () => {
-                    tileClicked(i, j, gameBoardCell)
+                    if(gameRunning){
+                        tileClicked(i, j, gameBoardCell)
+                    }
                 })
 
             gameBoard.appendChild(gridRow)
@@ -136,11 +195,21 @@ const Game = (() => {
         }
     }
 
+    function playerWon(player){
+        console.log("A player won!")
+    }
+
     function tileClicked(row, col, cell){
         if(GameBoard.getTile(row, col) === null){
             GameBoard.setTile(row, col, currentPlayer.getPlayerSymbol())
             cell.textContent = currentPlayer.getPlayerSymbol()
-            switchPlayer()
+            if(GameBoard.getWin(currentPlayer.getPlayerSymbol())){
+                gameRunning = false
+                playerWon(currentPlayer)
+            }
+            else{
+                switchPlayer()
+            }
         }
 
         else{
