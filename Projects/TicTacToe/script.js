@@ -59,12 +59,17 @@ const GameBoard = (() => {
         return gameBoardLength;
     }
 
+    function getTile(row, col){
+        return gameBoard[row][col]   
+    }
+
     //Return the functions so they can be used
     return{
         createBoard,
         printBoard,
         setTile,
-        getSize
+        getSize,
+        getTile
     }
 
 })();
@@ -132,15 +137,20 @@ const Game = (() => {
     }
 
     function tileClicked(row, col, cell){
-        console.log({
-            ROW: row,
-            COL: col
-        })
+        if(GameBoard.getTile(row, col) === null){
+            GameBoard.setTile(row, col, currentPlayer.getPlayerSymbol())
+            cell.textContent = currentPlayer.getPlayerSymbol()
+            switchPlayer()
+        }
 
-        GameBoard.setTile(row, col, currentPlayer.getPlayerSymbol())
-        GameBoard.printBoard()
-        cell.textContent = currentPlayer.getPlayerSymbol()
-        switchPlayer()
+        else{
+            console.log("That tile is already taken. Please choose a different tile")
+        }
+
+        // GameBoard.setTile(row, col, currentPlayer.getPlayerSymbol())
+        // GameBoard.printBoard()
+        // cell.textContent = currentPlayer.getPlayerSymbol()
+        // switchPlayer()
     }
 
     function switchPlayer(){
