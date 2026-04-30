@@ -116,6 +116,14 @@ const GameBoard = (() => {
         return won
     }
 
+    function resetBoard(){
+        for(let i = 0; i < gameBoardLength; ++i){
+            for(let j = 0; j < gameBoardLength; ++j){
+                gameBoard[i][j] = null
+            }
+        }
+    }
+
     //Return the functions so they can be used
     return{
         createBoard,
@@ -123,7 +131,8 @@ const GameBoard = (() => {
         setTile,
         getSize,
         getTile,
-        getWin
+        getWin,
+        resetBoard
     }
 
 })();
@@ -202,10 +211,17 @@ const Game = (() => {
         resetButton.textContent = "Reset"
         resetButtonContainer.appendChild(resetButton)
         resetButton.addEventListener("click", () => {
-            //ClearBoard. Add score to player that won or 1/2 if draw.
-            //Reset Board to play again. Remove button
+            const display = document.querySelector("#gameContainer")
+            //Add score to player that won or 1/2 if draw.
+            display.replaceChildren()
+            GameBoard.resetBoard()
+            GameBoard.printBoard()
             resetButton.remove()
-        }
+            displayGame()
+            gameRunning = true
+            
+
+        })
     }
 
     function tileClicked(row, col, cell){
@@ -214,6 +230,7 @@ const Game = (() => {
             cell.textContent = currentPlayer.getPlayerSymbol()
             if(GameBoard.getWin(currentPlayer.getPlayerSymbol())){
                 gameRunning = false
+                console.log(gameRunning)
                 playerWon(currentPlayer)
             }
             else{
