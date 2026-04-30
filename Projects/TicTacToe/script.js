@@ -205,7 +205,7 @@ const Game = (() => {
     }
 
     function playerWon(player){
-        console.log("A player won!")
+        console.log(player.getPlayerName() + " has won!")
         const resetButtonContainer = document.querySelector("#resetButtonContainer")
         const resetButton = document.createElement("button")
         resetButton.textContent = "Reset"
