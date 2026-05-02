@@ -1,6 +1,5 @@
+import {
+    greeting
+} from "./domObjects.js"
 
-const HelloButton = document.querySelector("#HelloButton")
-
-HelloButton.addEventListener("click", () => {
-    console.log("Hello from the Hello button!")
-})
+console.log(greeting)
