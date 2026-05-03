@@ -116,6 +116,14 @@ const GameBoard = (() => {
         return won
     }
 
+    function resetBoard(){
+        for(let i = 0; i < gameBoardLength; ++i){
+            for(let j = 0; j < gameBoardLength; ++j){
+                gameBoard[i][j] = null
+            }
+        }
+    }
+
     //Return the functions so they can be used
     return{
         createBoard,
@@ -123,7 +131,8 @@ const GameBoard = (() => {
         setTile,
         getSize,
         getTile,
-        getWin
+        getWin,
+        resetBoard
     }
 
 })();
@@ -196,15 +205,25 @@ const Game = (() => {
     }
 
     function playerWon(player){
-        console.log("A player won!")
+        console.log(player.getPlayerName() + " has won!")
         const resetButtonContainer = document.querySelector("#resetButtonContainer")
         const resetButton = document.createElement("button")
         resetButton.textContent = "Reset"
         resetButtonContainer.appendChild(resetButton)
         resetButton.addEventListener("click", () => {
-            //ClearBoard. Add score to player that won or 1/2 if draw.
-            //Reset Board to play again. Remove button
+            const display = document.querySelector("#gameContainer")
+            //Add score to player that won or 1/2 if draw.
+            display.replaceChildren()
+            GameBoard.resetBoard()
+            GameBoard.printBoard()
             resetButton.remove()
+// <<<<<<< HEAD
+// =======
+//             displayGame()
+//             gameRunning = true
+//
+//
+// >>>>>>> 760859a9a9ddbb305bb29a46e538e1b23da34283
         })
     }
 
@@ -214,6 +233,7 @@ const Game = (() => {
             cell.textContent = currentPlayer.getPlayerSymbol()
             if(GameBoard.getWin(currentPlayer.getPlayerSymbol())){
                 gameRunning = false
+                console.log(gameRunning)
                 playerWon(currentPlayer)
             }
             else{
