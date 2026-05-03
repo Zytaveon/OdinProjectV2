@@ -205,7 +205,7 @@ const Game = (() => {
             //ClearBoard. Add score to player that won or 1/2 if draw.
             //Reset Board to play again. Remove button
             resetButton.remove()
-        }
+        })
     }
 
     function tileClicked(row, col, cell){
